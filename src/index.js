@@ -1,26 +1,26 @@
 import './style.css';
 
-const taskContainer = document.querySelector('.todo-lists');
+const list = document.querySelector('.list');
 
-const todoTasks = [
+const array = [
   {
-    desc: 'Wash the dishes',
+    description: 'clean house',
     completed: false,
     index: 0,
   },
   {
-    desc: 'Complete To Do list project',
+    description: 'feed animals',
     completed: false,
     index: 1,
   },
   {
-    desc: 'Fix car',
+    description: 'go shopping',
     completed: false,
     index: 2,
   },
 ];
 
-todoTasks.forEach((task) => {
-  const markup = `<li class="todo-list border-bottom">${task.desc}</li>`;
-  taskContainer.insertAdjacentHTML('beforeend', markup);
+array.forEach((task) => {
+  const item = `<li class="item"><div><input type="checkbox">${task.description}</div><a class="refresh" href="#"><img src="./icons/vector-3.png"></a></li>`;
+  list.insertAdjacentHTML('beforeend', item);
 });

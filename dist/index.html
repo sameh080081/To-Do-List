@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
+    <title>To do list</title>
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
-<body>
-    <section class="todo-list-container">
-        <div class="todo-header border-bottom">
-            <p>Today's To Do</p>
-            <button class="btn refresh-btn">icon</button>
-        </div>
-        <div class="todo-input-container border-bottom">
-            <input type="text" class="todo-input" placeholder="Add to your list..."/>
-            <button class="btn return-btn">icon</button>
-        </div>
-        <ul class="todo-lists"></ul>
-        <div class="todo-btn-container">
-            <button type="submit" class="btn clear-btn">Clear all completed</button>
-        </div>
-    </section>
+<body class="font">
+  <header>
+  <h1 id="title">Today's To Do</h1>
+  <a class="refresh" href="#"><img src="./icons/refresh-icon.png"></a>
+  </header>
+  <input class = "task_input" type="text" placeholder="Add to your list...">
+  <div class="list">
+  </div>
+  <button class="clear">Clear all completed</button>
+  <script type="module" src="index.js"></script>
 </body>
 </html>

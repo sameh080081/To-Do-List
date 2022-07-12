@@ -1,0 +1,47 @@
+header {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refresh {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  opacity: 0.5;
+}
+
+.task_input {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, .3);
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+  font-style: italic;
+  height: 35px;
+  width: 30%;
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .3);
+  width: 30%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clear {
+  border: none;
+  width: 30%;
+  height: 40px;
+}
+
+.font {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

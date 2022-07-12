@@ -1,0 +1,57 @@
+section {
+  box-shadow: 3px 3px 3px 3px #888;
+  width: 30%;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.refresh {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  opacity: 0.5;
+  margin-right: 10px;
+}
+
+.task_input {
+  border: none;
+  border-top: 1px solid rgba(1, 1, 1, 0.3);
+  border-bottom: 1px solid rgba(1, 1, 1, 0.3);
+  font-style: italic;
+  height: 35px;
+  width: 95%;
+  align-self: center;
+  margin-left: 5px;
+}
+
+.list {
+  list-style: none;
+  margin-left: 5px;
+}
+
+.item {
+  display: flex;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.3);
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clear {
+  border: none;
+  width: 100%;
+  height: 40px;
+}
+
+.font {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

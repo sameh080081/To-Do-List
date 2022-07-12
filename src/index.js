@@ -21,6 +21,6 @@ const array = [
 ];
 
 array.forEach((task) => {
-  const item = `<li class="item"><div><input type="checkbox">${task.description}</div><a class="refresh" href="#"><img src="./icons/vector-3.png"></a></li>`;
+  const item = `<li class="item"><div><input type="checkbox">${task.description}</div><a class="refresh" href="#"><img alt= "move" src="./icons/vector-3.png"></a></li>`;
   list.insertAdjacentHTML('beforeend', item);
 });

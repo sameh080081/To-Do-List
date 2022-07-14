@@ -11,7 +11,9 @@ header {
   margin-left: 5px;
 }
 
-.refresh ,.enter ,.move {
+.refresh,
+.enter,
+.move {
   display: flex;
   width: 15px;
   height: 15px;

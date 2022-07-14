@@ -11,7 +11,7 @@ header {
   margin-left: 5px;
 }
 
-.refresh {
+.refresh ,.enter ,.move {
   display: flex;
   width: 15px;
   height: 15px;
@@ -19,15 +19,21 @@ header {
   margin-right: 10px;
 }
 
-.task_input {
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: none;
   border-top: 1px solid rgba(1, 1, 1, 0.3);
   border-bottom: 1px solid rgba(1, 1, 1, 0.3);
-  font-style: italic;
   height: 35px;
-  width: 95%;
+  width: 100%;
+}
+
+.task_input {
+  border: none;
+  font-style: italic;
   align-self: center;
-  margin-left: 5px;
 }
 
 .list {

@@ -36,6 +36,9 @@ header {
   border: none;
   font-style: italic;
   align-self: center;
+  height: 95%;
+  width: inherit;
+  margin: 2px 2px 2px 2px;
 }
 
 .list {

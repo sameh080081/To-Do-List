@@ -6,8 +6,6 @@ const input = document.querySelector('.task_input');
 const clear = document.querySelector('.clear');
 let array = JSON.parse(localStorage.getItem('array')) || [];
 
-
-
 function update(index, value) {
   if (value !== '') {
     array[index] = { description: value, completed: false };
@@ -24,7 +22,7 @@ function display() {
   list.innerHTML = '';
   array.forEach((task) => {
     let checked = '';
-    if (task.completed){checked = 'checked';}
+    if (task.completed) { checked = 'checked'; }
     const item = `<li class="item"><div class ="check-cont"><input class="checkbox" type="checkbox" ${checked}>
     <input class="edit" id="${array.indexOf(task)}" type="text" value = "${task.description}"></div>
     <a class="delete hide" href="#"><img alt= "delete" src="../../../icons/bin.png"></a>
@@ -60,7 +58,6 @@ function display() {
       localStorage.setItem('array', JSON.stringify(array));
     });
   });
-
 }
 
 function add() {

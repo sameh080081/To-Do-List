@@ -37,9 +37,7 @@ function display() {
       const index = e.target.parentElement.previousElementSibling.firstChild.nextElementSibling.getAttribute(('id'), 10);
       removeTask(index);
       display();
-      array.forEach((task) => {
-        console.log(task);
-      });
+      localStorage.setItem('array', JSON.stringify(array));
     });
 
     task.addEventListener('keyup', (e) => {
@@ -57,7 +55,7 @@ function add() {
     array.push({
       description: input.value,
       completed: false,
-      index: array.length - 1,
+      index: array.length,
     });
     localStorage.setItem('array', JSON.stringify(array));
     input.value = '';

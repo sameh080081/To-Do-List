@@ -5,6 +5,18 @@ const enter = document.querySelector('.enter');
 const input = document.querySelector('.task_input');
 const array = JSON.parse(localStorage.getItem('array')) || [];
 
+function update(index, value) {
+  if (value != ''){
+    array[index] = {description: value, completed: false};
+    localStorage.setItem('array',JSON.stringify(array));
+   }
+}
+
+function remove_task(index) {
+  array.splice(index,1);
+  localStorage.setItem('array',JSON.stringify(array));
+}
+
 function display() {
   list.innerHTML = '';
   array.forEach((task) => {
@@ -18,17 +30,19 @@ function display() {
     const remove = task.parentElement.nextElementSibling;
     task.onfocus = function () {
       remove.classList.remove('hide');
-    }
+    };
 
     remove.addEventListener('click', (e) => {
       const index = e.target.parentElement.previousElementSibling.firstChild.nextElementSibling.getAttribute(('id'), 10);
       remove_task(index);
+      display();
     });
 
     task.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
         const index = parseInt(e.target.getAttribute('id'), 10);
         update(index, task.value);
+        display();
       }
     });
   });
@@ -55,19 +69,5 @@ input.addEventListener('keyup', (e) => {
     add();
   }
 });
-
-function update(index, value) {
-  if (value != ''){
-    array[index] = {description: value, completed: false};
-    localStorage.setItem('array',JSON.stringify(array));
-    display();
-   }
-}
-
-function remove_task(index) {
-  array.splice(index,1);
-  localStorage.setItem('array',JSON.stringify(array));
-  display();
-}
 
 document.addEventListener('DOMContentLoaded', display());

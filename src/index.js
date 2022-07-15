@@ -3,7 +3,10 @@ import './style.css';
 const list = document.querySelector('.list');
 const enter = document.querySelector('.enter');
 const input = document.querySelector('.task_input');
-const array = JSON.parse(localStorage.getItem('array')) || [];
+const clear = document.querySelector('.clear');
+let array = JSON.parse(localStorage.getItem('array')) || [];
+
+
 
 function update(index, value) {
   if (value !== '') {
@@ -20,7 +23,9 @@ function removeTask(index) {
 function display() {
   list.innerHTML = '';
   array.forEach((task) => {
-    const item = `<li class="item"><div class ="check-cont"><input class="checkbox" type="checkbox">
+    let checked = '';
+    if (task.completed){checked = 'checked';}
+    const item = `<li class="item"><div class ="check-cont"><input class="checkbox" type="checkbox" ${checked}>
     <input class="edit" id="${array.indexOf(task)}" type="text" value = "${task.description}"></div>
     <a class="delete hide" href="#"><img alt= "delete" src="../../../icons/bin.png"></a>
     <a class="move" href="#"><img alt= "move" src="../../../icons/vector3.png"></a></li>`;
@@ -48,6 +53,14 @@ function display() {
       }
     });
   });
+
+  document.querySelectorAll('.checkbox').forEach((check) => {
+    check.addEventListener('change', () => {
+      array[check.nextElementSibling.getAttribute('id')].completed = check.checked;
+      localStorage.setItem('array', JSON.stringify(array));
+    });
+  });
+
 }
 
 function add() {
@@ -62,6 +75,12 @@ function add() {
     display();
   }
 }
+
+clear.addEventListener('click', () => {
+  array = array.filter((task) => task.completed !== true);
+  localStorage.setItem('array', JSON.stringify(array));
+  display();
+});
 
 enter.addEventListener('click', () => {
   add();

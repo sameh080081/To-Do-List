@@ -25,6 +25,7 @@ function display() {
     <a class="delete hide" href="#"><img alt= "delete" src="../../../icons/bin.png"></a>
     <a class="move" href="#"><img alt= "move" src="../../../icons/vector3.png"></a></li>`;
     list.insertAdjacentHTML('beforeend', item);
+    task.index = array.indexOf(task);
   });
   document.querySelectorAll('.edit').forEach((task) => {
     const remove = task.parentElement.nextElementSibling;
@@ -53,6 +54,7 @@ function add() {
     array.push({
       description: input.value,
       completed: false,
+      index: array.length-1,
     });
     localStorage.setItem('array', JSON.stringify(array));
     input.value = '';

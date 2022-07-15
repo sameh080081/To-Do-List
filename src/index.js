@@ -6,15 +6,15 @@ const input = document.querySelector('.task_input');
 const array = JSON.parse(localStorage.getItem('array')) || [];
 
 function update(index, value) {
-  if (value != ''){
-    array[index] = {description: value, completed: false};
-    localStorage.setItem('array',JSON.stringify(array));
-   }
+  if (value !== '') {
+    array[index] = { description: value, completed: false };
+    localStorage.setItem('array', JSON.stringify(array));
+  }
 }
 
 function remove_task(index) {
-  array.splice(index,1);
-  localStorage.setItem('array',JSON.stringify(array));
+  array.splice(index, 1);
+  localStorage.setItem('array', JSON.stringify(array));
 }
 
 function display() {
@@ -38,8 +38,8 @@ function display() {
       display();
     });
 
-    task.addEventListener("keyup", (e) => {
-      if (e.key === "Enter") {
+    task.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
         const index = parseInt(e.target.getAttribute('id'), 10);
         update(index, task.value);
         display();
@@ -52,7 +52,7 @@ function add() {
   if (input.value !== '') {
     array.push({
       description: input.value,
-      completed: false
+      completed: false;
     });
     localStorage.setItem('array', JSON.stringify(array));
     input.value = '';

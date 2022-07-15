@@ -7,8 +7,9 @@ const array = JSON.parse(localStorage.getItem('array')) || [];
 
 function add() {
   if (input.value !== '') {
-    array.push({ description: input.value,
-    completed: false });
+    array.push({ 
+      description: input.value,
+      completed: false });
     localStorage.setItem('array',JSON.stringify(array));
     input.value = '';
     display();

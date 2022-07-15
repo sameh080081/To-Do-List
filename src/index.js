@@ -54,7 +54,7 @@ function add() {
     array.push({
       description: input.value,
       completed: false,
-      index: array.length-1,
+      index: array.length - 1,
     });
     localStorage.setItem('array', JSON.stringify(array));
     input.value = '';

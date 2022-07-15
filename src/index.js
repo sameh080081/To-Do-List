@@ -1,26 +1,76 @@
 import './style.css';
 
 const list = document.querySelector('.list');
+const enter = document.querySelector('.enter');
+const input = document.querySelector('.task_input');
+const array = JSON.parse(localStorage.getItem('array')) || [];
 
-const array = [
-  {
-    description: 'clean house',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'feed animals',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'go shopping',
-    completed: false,
-    index: 2,
-  },
-];
+function update(index, value) {
+  if (value !== '') {
+    array[index] = { description: value, completed: false };
+    localStorage.setItem('array', JSON.stringify(array));
+  }
+}
 
-array.forEach((task) => {
-  const item = `<li class="item"><div><input type="checkbox">${task.description}</div><a class="move" href="#"><img alt= "move" src="../../../icons/vector3.png"></a></li>`;
-  list.insertAdjacentHTML('beforeend', item);
+function removeTask(index) {
+  array.splice(index, 1);
+  localStorage.setItem('array', JSON.stringify(array));
+}
+
+function display() {
+  list.innerHTML = '';
+  array.forEach((task) => {
+    const item = `<li class="item"><div class ="check-cont"><input class="checkbox" type="checkbox">
+    <input class="edit" id="${array.indexOf(task)}" type="text" value = "${task.description}"></div>
+    <a class="delete hide" href="#"><img alt= "delete" src="../../../icons/bin.png"></a>
+    <a class="move" href="#"><img alt= "move" src="../../../icons/vector3.png"></a></li>`;
+    list.insertAdjacentHTML('beforeend', item);
+    task.index = array.indexOf(task);
+  });
+  document.querySelectorAll('.edit').forEach((task) => {
+    const remove = task.parentElement.nextElementSibling;
+    task.onfocus = function () {
+      remove.classList.remove('hide');
+    };
+
+    remove.addEventListener('click', (e) => {
+      const index = e.target.parentElement.previousElementSibling.firstChild.nextElementSibling.getAttribute(('id'), 10);
+      removeTask(index);
+      display();
+      localStorage.setItem('array', JSON.stringify(array));
+    });
+
+    task.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        const index = parseInt(e.target.getAttribute('id'), 10);
+        update(index, task.value);
+        display();
+      }
+    });
+  });
+}
+
+function add() {
+  if (input.value !== '') {
+    array.push({
+      description: input.value,
+      completed: false,
+      index: array.length,
+    });
+    localStorage.setItem('array', JSON.stringify(array));
+    input.value = '';
+    display();
+  }
+}
+
+enter.addEventListener('click', () => {
+  add();
 });
+
+input.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    add();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', display());

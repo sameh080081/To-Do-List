@@ -13,7 +13,8 @@ header {
 
 .refresh,
 .enter,
-.move {
+.move,
+.delete {
   display: flex;
   width: 15px;
   height: 15px;
@@ -34,6 +35,7 @@ header {
 
 .task_input {
   border: none;
+  outline: none;
   font-style: italic;
   align-self: center;
   height: 95%;
@@ -61,6 +63,33 @@ header {
   border: none;
   width: 100%;
   height: 40px;
+}
+
+.check-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  width: 100%;
+}
+
+.edit {
+  border: none;
+  outline: none;
+  height: 100%;
+  width: inherit;
+}
+
+.edit:focus {
+  background-color: yellow;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 .font {

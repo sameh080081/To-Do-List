@@ -1,21 +1,9 @@
 import './style.css';
 
 const list = document.querySelector('.list');
-const clear = document.querySelector('.clear');
 const enter = document.querySelector('.enter');
-const tasks = document.querySelectorAll('.edit');
 const input = document.querySelector('.task_input');
 const array = JSON.parse(localStorage.getItem('array')) || [];
-
-enter.addEventListener('click', (e) => {
-  add();
-});
-
-input.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") {
-    add();
-  }
-});
 
 function add () {
   if(input.value != ''){
@@ -26,6 +14,16 @@ function add () {
    display();
   }
 }
+
+enter.addEventListener('click', () => {
+  add();
+});
+
+input.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    add();
+  }
+});
 
 function update(index, value) {
   if(value != ''){

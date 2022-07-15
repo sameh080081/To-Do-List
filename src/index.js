@@ -12,7 +12,7 @@ function update(index, value) {
   }
 }
 
-function remove_task(index) {
+function removeTask(index) {
   array.splice(index, 1);
   localStorage.setItem('array', JSON.stringify(array));
 }
@@ -34,7 +34,7 @@ function display() {
 
     remove.addEventListener('click', (e) => {
       const index = e.target.parentElement.previousElementSibling.firstChild.nextElementSibling.getAttribute(('id'), 10);
-      remove_task(index);
+      removeTask(index);
       display();
     });
 

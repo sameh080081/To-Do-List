@@ -52,7 +52,7 @@ function add() {
   if (input.value !== '') {
     array.push({
       description: input.value,
-      completed: false;
+      completed: false,
     });
     localStorage.setItem('array', JSON.stringify(array));
     input.value = '';

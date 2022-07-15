@@ -37,6 +37,9 @@ function display() {
       const index = e.target.parentElement.previousElementSibling.firstChild.nextElementSibling.getAttribute(('id'), 10);
       removeTask(index);
       display();
+      array.forEach((task) => {
+        console.log(task);
+      });
     });
 
     task.addEventListener('keyup', (e) => {

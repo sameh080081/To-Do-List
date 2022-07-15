@@ -6,7 +6,7 @@ const input = document.querySelector('.task_input');
 const array = JSON.parse(localStorage.getItem('array')) || [];
 
 function display() {
-  list.innerHTML = ``;
+  list.innerHTML = '';
   array.forEach((task) => {
     const item = `<li class="item"><div class ="check-cont"><input class="checkbox" type="checkbox">
     <input class="edit" id="${array.indexOf(task)}" type="text" value = "${task.description}"></div>
@@ -16,7 +16,7 @@ function display() {
   });
   document.querySelectorAll('.edit').forEach((task) => {
     const remove = task.parentElement.nextElementSibling;
-    task.onfocus = function (){
+    task.onfocus = function () {
       remove.classList.remove('hide');
     }
 

@@ -5,13 +5,13 @@ const enter = document.querySelector('.enter');
 const input = document.querySelector('.task_input');
 const array = JSON.parse(localStorage.getItem('array')) || [];
 
-function add () {
-  if(input.value != ''){
-   array.push({description: input.value,
-   completed: false});
-   localStorage.setItem('array',JSON.stringify(array));
-   input.value = '';
-   display();
+function add() {
+  if (input.value !== '') {
+    array.push({ description: input.value,
+    completed: false });
+    localStorage.setItem('array',JSON.stringify(array));
+    input.value = '';
+    display();
   }
 }
 
@@ -26,7 +26,7 @@ input.addEventListener('keyup', (e) => {
 });
 
 function update(index, value) {
-  if(value != ''){
+  if (value != ''){
     array[index] = {description: value, completed: false};
     localStorage.setItem('array',JSON.stringify(array));
     display();

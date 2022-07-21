@@ -22,5 +22,8 @@ describe('add and remove', () => {
       array = add(array,input);
       expect(array).toHaveLength(2);
     });
-
+    test('remove test', () => {
+      array =remove(array,1);
+      expect(array).toHaveLength(1);
+    });
 });

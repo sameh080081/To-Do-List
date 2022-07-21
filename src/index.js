@@ -1,9 +1,10 @@
 import './style.css';
 
 const mymodule = require('./methods.js');
-const add = mymodule.add;
-const removeTask = mymodule.removeTask;
-const update = mymodule.update;
+
+const { add } = mymodule.add;
+const { removeTask } = mymodule.removeTask;
+const { update } = mymodule.update;
 
 const list = document.querySelector('.list');
 const enter = document.querySelector('.enter');

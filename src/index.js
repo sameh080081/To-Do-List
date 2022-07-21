@@ -15,8 +15,8 @@ function display() {
     if (task.completed) { checked = 'checked'; }
     const item = `<li class="item"><div class ="check-cont"><input class="checkbox" type="checkbox" ${checked}>
     <input class="edit" id="${array.indexOf(task)}" type="text" value = "${task.description}"></div>
-    <a class="delete hide" href="#"><img alt= "delete" src="../../../icons/bin.png"></a>
-    <a class="move" href="#"><img alt= "move" src="../../../icons/vector3.png"></a></li>`;
+    <a class="delete hide" href="#"><img alt= "delete" src="../icons/bin.png"></a>
+    <a class="move" href="#"><img alt= "move" src="../icons/vector3.png"></a></li>`;
     list.insertAdjacentHTML('beforeend', item);
     task.index = array.indexOf(task);
   });

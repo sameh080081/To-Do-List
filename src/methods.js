@@ -1,13 +1,13 @@
 function add(array,input) {
-    if (input !== '') {
-      array.push({
-        description: input,
-        completed: false,
-        index: array.length,
-      });
-    }
-    return array;
+  if (input !== '') {
+    array.push({
+      description: input,
+      completed: false,
+      index: array.length,
+    });
   }
+  return array;
+}
 
 function update(array,index, value) {
   if (value !== '') {

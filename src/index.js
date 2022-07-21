@@ -2,10 +2,6 @@ import './style.css';
 
 const mymodule = require('./methods.js');
 
-const { add } = mymodule.add;
-const { removeTask } = mymodule.removeTask;
-const { update } = mymodule.update;
-
 const list = document.querySelector('.list');
 const enter = document.querySelector('.enter');
 const input = document.querySelector('.task_input');
@@ -32,7 +28,7 @@ function display() {
 
     remove.addEventListener('click', (e) => {
       const index = e.target.parentElement.previousElementSibling.firstChild.nextElementSibling.getAttribute(('id'), 10);
-      array = removeTask(array, index);
+      array = mymodule.removeTask(array, index);
       display();
       localStorage.setItem('array', JSON.stringify(array));
     });
@@ -40,7 +36,7 @@ function display() {
     task.addEventListener('keyup', (e) => {
       if (e.key === 'Enter') {
         const index = parseInt(e.target.getAttribute('id'), 10);
-        array = update(array, index, task.value);
+        array = mymodule.update(array, index, task.value);
         display();
       }
     });
@@ -61,7 +57,7 @@ clear.addEventListener('click', () => {
 });
 
 enter.addEventListener('click', () => {
-  array = add(array, input.value);
+  array = mymodule.add(array, input.value);
   localStorage.setItem('array', JSON.stringify(array));
   display();
   input.value = '';
@@ -69,7 +65,7 @@ enter.addEventListener('click', () => {
 
 input.addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
-    array = add(array, input.value);
+    array = mymodule.add(array, input.value);
     localStorage.setItem('array', JSON.stringify(array));
     display();
     input.value = '';

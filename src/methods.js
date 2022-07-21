@@ -1,4 +1,4 @@
-function add(array,input) {
+function add(array, input) {
   if (input !== '') {
     array.push({
       description: input,
@@ -9,7 +9,7 @@ function add(array,input) {
   return array;
 }
 
-function update(array,index, value) {
+function update(array, index, value) {
   if (value !== '') {
     array[index] = { description: value, completed: false };
   }

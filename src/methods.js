@@ -16,8 +16,8 @@ function update(array,index, value) {
   return array;
 }
 
-function removeTask(array,index) {
+function removeTask(array, index) {
   array.splice(index, 1);
   return array;
 }
-module.exports = {add,update,removeTask};
+module.exports = { add, update, removeTask };

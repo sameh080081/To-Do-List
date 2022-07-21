@@ -22,7 +22,7 @@ function display() {
   });
   document.querySelectorAll('.edit').forEach((task) => {
     const remove = task.parentElement.nextElementSibling;
-    task.onfocus = function () {
+    task.onfocus = () => {
       remove.classList.remove('hide');
     };
 

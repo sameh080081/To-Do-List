@@ -30,4 +30,6 @@ function clearChecked(array) {
   return array.filter((task) => task.completed !== true);
 }
 
-module.exports = { add, update, removeTask, changeCheck, clearChecked };
+module.exports = {
+  add, update, removeTask, changeCheck, clearChecked
+};

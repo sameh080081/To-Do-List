@@ -44,14 +44,14 @@ function display() {
 
   document.querySelectorAll('.checkbox').forEach((check) => {
     check.addEventListener('change', () => {
-      array[check.nextElementSibling.getAttribute('id')].completed = check.checked;
+      array = mymodule.changeCheck(array, check.nextElementSibling.getAttribute('id'), check.checked);
       localStorage.setItem('array', JSON.stringify(array));
     });
   });
 }
 
 clear.addEventListener('click', () => {
-  array = array.filter((task) => task.completed !== true);
+  array = mymodule.clearChecked(array);
   localStorage.setItem('array', JSON.stringify(array));
   display();
 });

@@ -31,5 +31,5 @@ function clearChecked(array) {
 }
 
 module.exports = {
-  add, update, removeTask, changeCheck, clearChecked
+  add, update, removeTask, changeCheck, clearChecked,
 };
